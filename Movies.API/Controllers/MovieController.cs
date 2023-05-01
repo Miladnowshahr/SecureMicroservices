@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movies.API.Models.DTO;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class MovieController : ControllerBase
 {
     private readonly MovieDbContext _movieDbContext;

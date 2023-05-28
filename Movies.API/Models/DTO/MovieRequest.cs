@@ -1,4 +1,5 @@
 namespace Movies.API.Models.DTO;
+
 public class MovieRequest
 {
     public string Title { get; set; }

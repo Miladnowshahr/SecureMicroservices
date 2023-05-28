@@ -32,27 +32,25 @@ public class MovieController : ControllerBase
     public async Task<IActionResult> Movie([FromBody] MovieRequest request)
     {
         _movieDbContext.Movies.Add(request.ToModel());
-        var saveMovie =await _movieDbContext.SaveChangesAsync();
+        var saveMovie = await _movieDbContext.SaveChangesAsync();
         return Ok();
-
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Movie(int id, [FromBody] MovieRequest request)
     {
-        var oldMovie = _movieDbContext.Movies.FirstOrDefault(f => f.Id == id);  
-        if (oldMovie == null)  return NotFound(); 
+        var oldMovie = _movieDbContext.Movies.FirstOrDefault(f => f.Id == id);
+        if (oldMovie == null) return NotFound();
 
         _movieDbContext.Update(request.ToModel());
         await _movieDbContext.SaveChangesAsync();
         return Ok();
-
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Movie(int id)
     {
-        var movie = _movieDbContext.Movies.FirstOrDefault(f=>f.Id == id);
+        var movie = _movieDbContext.Movies.FirstOrDefault(f => f.Id == id);
         if (movie == null) return NotFound();
         _movieDbContext.Remove(movie);
         await _movieDbContext.SaveChangesAsync();

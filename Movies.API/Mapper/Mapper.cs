@@ -7,10 +7,10 @@ public static class Mapper
     {
         return new Movie()
         {
-            Genre= request.Genre,
-            Owner= request.Owner,
-            ReleaseDate= request.ReleaseDate,
-            Title= request.Title,
+            Genre = request.Genre,
+            Owner = request.Owner,
+            ReleaseDate = request.ReleaseDate,
+            Title = request.Title,
         };
     }
 }
